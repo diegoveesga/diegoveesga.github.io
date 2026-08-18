@@ -1,0 +1,17 @@
+title: "NOTAS AL MARGEN"
+author: "Diego Vesga"
+
+description: "Análisis, columnas y reflexiones personales sobre política, economía y desarrollo en Colombia."
+
+url: "https://diegoveesga.github.io"
+baseurl: ""
+
+lang: "es"
+
+timezone: "America/Bogota"
+
+permalink: /articulos/:title/
+
+markdown: kramdown
+
+future: false
