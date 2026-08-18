@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Diego Vesga | Política, Economía y Desarrollo</title>
+  <title>Diego Vesga | Análisis, política y economía</title>
 
   <meta
     name="description"
-    content="Análisis y reflexiones de Diego Vesga sobre política, economía y desarrollo en Colombia."
+    content="Archivo personal de análisis, columnas y reflexiones de Diego Vesga sobre política, economía y desarrollo en Colombia."
   >
 
   <style>
@@ -20,10 +20,10 @@
 
     :root {
       --black: #111111;
-      --dark-gray: #303030;
-      --mid-gray: #777777;
-      --light-gray: #dddddd;
-      --very-light-gray: #f4f4f4;
+      --dark: #2b2b2b;
+      --gray: #737373;
+      --light-gray: #d9d9d9;
+      --very-light-gray: #f5f5f5;
       --white: #ffffff;
     }
 
@@ -40,70 +40,56 @@
     }
 
     .container {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    /* TOP BAR */
-    .topbar {
-      background: var(--black);
-      color: var(--white);
-      font-size: 12px;
-      letter-spacing: 0.4px;
-    }
+    /* HEADER */
 
-    .topbar-inner {
-      min-height: 34px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* BRAND */
-    .brand {
-      padding: 36px 0 28px;
+    header {
       border-bottom: 1px solid var(--black);
+      padding: 30px 0 22px;
     }
 
-    .brand-inner {
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 30px;
     }
 
-    .brand-name {
+    .brand {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 7vw, 76px);
+      font-size: clamp(38px, 6vw, 64px);
       font-weight: 700;
-      letter-spacing: -3px;
-      line-height: 0.9;
+      letter-spacing: -2px;
+      line-height: 0.95;
     }
 
-    .brand-description {
-      max-width: 340px;
+    .tagline {
+      max-width: 380px;
       text-align: right;
       font-size: 13px;
-      color: var(--dark-gray);
+      color: var(--dark);
     }
 
-    /* NAVIGATION */
+    /* NAV */
+
     nav {
       border-bottom: 1px solid var(--light-gray);
     }
 
     .nav-inner {
-      min-height: 52px;
+      min-height: 50px;
       display: flex;
       align-items: center;
-      gap: 34px;
+      gap: 30px;
       overflow-x: auto;
       white-space: nowrap;
     }
 
     .nav-inner a {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.6px;
@@ -115,316 +101,284 @@
     }
 
     /* INTRO */
+
     .intro {
-      padding: 42px 0 32px;
-      border-bottom: 1px solid var(--black);
+      padding: 42px 0 30px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 15px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .intro h1 {
-      max-width: 870px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(34px, 5vw, 60px);
-      line-height: 1.03;
-      letter-spacing: -1.8px;
-      font-weight: 500;
-    }
-
-    .intro p {
-      max-width: 720px;
-      margin-top: 20px;
-      font-size: 18px;
-      color: var(--dark-gray);
-    }
-
-    /* MAIN GRID */
-    .main-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
-      gap: 36px;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--black);
-    }
-
-    .featured {
-      padding-right: 36px;
-      border-right: 1px solid var(--light-gray);
-    }
-
-    .category {
-      margin-bottom: 10px;
+    .intro-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 700;
-      color: var(--mid-gray);
+      color: var(--gray);
+      margin-bottom: 12px;
     }
 
-    .featured h2 {
-      max-width: 760px;
+    .intro h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: -1px;
       line-height: 1.05;
-      letter-spacing: -1.3px;
+      max-width: 760px;
+    }
+
+    .intro p {
+      margin-top: 16px;
+      max-width: 720px;
+      font-size: 17px;
+      color: var(--dark);
+    }
+
+    /* FILTERS */
+
+    .filters {
+      border-top: 1px solid var(--black);
+      border-bottom: 1px solid var(--black);
+      padding: 18px 0;
+      margin-bottom: 8px;
+    }
+
+    .filters-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 2fr;
+      gap: 12px;
+    }
+
+    .filter-button,
+    select,
+    input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
+      padding: 0 13px;
+      font-size: 13px;
+      color: var(--black);
+    }
+
+    input:focus,
+    select:focus {
+      outline: 1px solid var(--black);
+      border-color: var(--black);
+    }
+
+    .filter-button {
+      cursor: pointer;
+      text-align: left;
       font-weight: 600;
     }
 
-    .featured h2:hover {
+    /* POSTS */
+
+    .posts {
+      padding: 10px 0 60px;
+    }
+
+    .post {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) 230px;
+      gap: 32px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--light-gray);
+      align-items: start;
+    }
+
+    .post-date {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+
+    .post-category {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: var(--gray);
+    }
+
+    .post h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 3vw, 35px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .post h2 a:hover {
       text-decoration: underline;
       text-decoration-thickness: 1px;
-      text-underline-offset: 6px;
+      text-underline-offset: 5px;
     }
 
-    .featured-summary {
-      margin-top: 18px;
-      max-width: 700px;
-      font-size: 17px;
-      color: var(--dark-gray);
+    .post-summary {
+      margin-top: 11px;
+      font-size: 15px;
+      color: var(--dark);
+      max-width: 650px;
     }
 
-    .meta {
-      margin-top: 20px;
+    .post-meta {
+      margin-top: 14px;
       font-size: 12px;
-      color: var(--mid-gray);
+      color: var(--gray);
     }
 
-    /* SIDE ARTICLES */
-    .side-articles article {
-      padding: 0 0 24px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--light-gray);
+    .post-image {
+      aspect-ratio: 16 / 10;
+      background: var(--very-light-gray);
+      border: 1px solid var(--light-gray);
+      overflow: hidden;
     }
 
-    .side-articles article:last-child {
-      border-bottom: 0;
-      margin-bottom: 0;
+    .post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
     }
 
-    .side-articles h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 22px;
-      line-height: 1.15;
-    }
+    /* EMPTY STATE */
 
-    .side-articles h3:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* SECTION */
-    .section {
-      padding: 40px 0;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding-bottom: 12px;
-      margin-bottom: 26px;
-      border-bottom: 2px solid var(--black);
-    }
-
-    .section-title {
-      font-size: 18px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-    }
-
-    .section-link {
-      font-size: 12px;
-      color: var(--mid-gray);
-    }
-
-    .article-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .article-card {
-      border-right: 1px solid var(--light-gray);
-      padding-right: 28px;
-    }
-
-    .article-card:last-child {
-      border-right: 0;
-      padding-right: 0;
-    }
-
-    .article-card h3 {
-      margin-bottom: 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 25px;
-      line-height: 1.12;
-    }
-
-    .article-card p {
-      font-size: 14px;
-      color: var(--dark-gray);
-    }
-
-    .article-card .meta {
-      margin-top: 15px;
+    .no-results {
+      display: none;
+      padding: 50px 0;
+      text-align: center;
+      color: var(--gray);
+      font-size: 15px;
     }
 
     /* ABOUT */
+
     .about {
       background: var(--very-light-gray);
       border-top: 1px solid var(--light-gray);
-      border-bottom: 1px solid var(--light-gray);
+      padding: 45px 0;
     }
 
     .about-inner {
-      padding: 46px 0;
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 60px;
+      gap: 50px;
     }
 
     .about h2 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
+      font-size: 32px;
     }
 
     .about p {
-      max-width: 730px;
-      font-size: 16px;
-      color: var(--dark-gray);
-    }
-
-    /* NEWSLETTER */
-    .newsletter {
-      padding: 55px 0;
-      text-align: center;
-    }
-
-    .newsletter h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(30px, 4vw, 44px);
-    }
-
-    .newsletter p {
-      max-width: 570px;
-      margin: 14px auto 24px;
-      color: var(--dark-gray);
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--black);
-      color: var(--white);
-      padding: 13px 24px;
-      border: 1px solid var(--black);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-    }
-
-    .button:hover {
-      background: var(--white);
-      color: var(--black);
+      font-size: 15px;
+      color: var(--dark);
+      max-width: 700px;
     }
 
     /* FOOTER */
+
     footer {
       background: var(--black);
       color: var(--white);
-      padding: 32px 0;
+      padding: 30px 0;
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 30px;
       align-items: center;
+      gap: 30px;
       font-size: 12px;
     }
 
     .footer-brand {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 800px) {
-      .brand-inner,
-      .footer-inner {
-        align-items: flex-start;
+
+    @media (max-width: 850px) {
+
+      .header-inner {
         flex-direction: column;
+        align-items: flex-start;
       }
 
-      .brand-description {
+      .tagline {
         text-align: left;
       }
 
-      .main-grid {
-        grid-template-columns: 1fr;
+      .filters-inner {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .featured {
-        padding-right: 0;
-        padding-bottom: 30px;
-        border-right: 0;
-        border-bottom: 1px solid var(--light-gray);
+      .post {
+        grid-template-columns: 90px minmax(0, 1fr);
       }
 
-      .article-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .article-card {
-        border-right: 0;
-        border-bottom: 1px solid var(--light-gray);
-        padding-right: 0;
-        padding-bottom: 22px;
+      .post-image {
+        grid-column: 2;
+        width: 100%;
+        max-width: 420px;
       }
 
       .about-inner {
         grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .topbar-inner {
-        align-items: flex-start;
-        padding: 8px 0;
-        flex-direction: column;
-        gap: 3px;
+        gap: 15px;
       }
     }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .filters-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .post {
+        display: block;
+      }
+
+      .post-date {
+        margin-bottom: 12px;
+      }
+
+      .post-image {
+        margin-top: 20px;
+        max-width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>Análisis independiente sobre Colombia</span>
-      <span>Política · Economía · Desarrollo</span>
-    </div>
-  </div>
+  <header>
+    <div class="container header-inner">
 
-  <header class="brand">
-    <div class="container brand-inner">
-
-      <div class="brand-name">
+      <div class="brand">
         Diego Vesga
       </div>
 
-      <div class="brand-description">
-        Ideas, datos y argumentos para entender la política,
-        la economía y los debates que están transformando Colombia.
+      <div class="tagline">
+        Política, economía y desarrollo.<br>
+        Análisis personales sobre Colombia.
       </div>
 
     </div>
@@ -432,12 +386,9 @@
 
   <nav>
     <div class="container nav-inner">
-      <a href="#">Inicio</a>
-      <a href="#">Política</a>
-      <a href="#">Economía</a>
-      <a href="#">Desarrollo</a>
-      <a href="#">Opinión</a>
+      <a href="#publicaciones">Publicaciones</a>
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#">Contacto</a>
     </div>
   </nav>
 
@@ -446,183 +397,229 @@
     <section class="intro">
       <div class="container">
 
-        <span class="eyebrow">Perspectiva</span>
+        <div class="intro-label">
+          Archivo
+        </div>
 
         <h1>
-          Entender el país más allá del titular.
+          Análisis, columnas y reflexiones.
         </h1>
 
         <p>
-          Un espacio personal para analizar con datos, contexto y criterio
-          los grandes debates económicos y políticos de Colombia.
+          Un archivo personal de ideas sobre política, economía, desarrollo
+          y los debates que ayudan a entender mejor a Colombia.
         </p>
 
       </div>
     </section>
 
-    <section class="container main-grid">
+    <section class="filters">
+      <div class="container filters-inner">
 
-      <article class="featured">
+        <select id="categoryFilter">
+          <option value="all">Todos los temas</option>
+          <option value="economia">Economía</option>
+          <option value="politica">Política</option>
+          <option value="desarrollo">Desarrollo</option>
+          <option value="opinion">Opinión</option>
+        </select>
 
-        <div class="category">Análisis destacado</div>
+        <select id="yearFilter">
+          <option value="all">Todos los años</option>
+          <option value="2026">2026</option>
+        </select>
 
-        <a href="#">
-          <h2>
-            El título de tu primer gran análisis aparecerá aquí
-          </h2>
-        </a>
+        <select id="monthFilter">
+          <option value="all">Todos los meses</option>
+          <option value="08">Agosto</option>
+          <option value="07">Julio</option>
+          <option value="06">Junio</option>
+        </select>
 
-        <p class="featured-summary">
-          Este espacio tendrá una introducción breve que explique la idea
-          central del artículo e invite al lector a profundizar en el análisis.
-        </p>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Buscar por título o palabra..."
+        >
 
-        <div class="meta">
-          Diego Vesga · Agosto 2026 · 6 min de lectura
-        </div>
-
-      </article>
-
-      <aside class="side-articles">
-
-        <article>
-          <div class="category">Economía</div>
-          <a href="#">
-            <h3>
-              Una segunda reflexión económica puede aparecer aquí
-            </h3>
-          </a>
-          <div class="meta">5 min de lectura</div>
-        </article>
-
-        <article>
-          <div class="category">Política</div>
-          <a href="#">
-            <h3>
-              Otro debate que vale la pena mirar con más contexto
-            </h3>
-          </a>
-          <div class="meta">7 min de lectura</div>
-        </article>
-
-        <article>
-          <div class="category">Desarrollo</div>
-          <a href="#">
-            <h3>
-              Las decisiones públicas también cuentan una historia
-            </h3>
-          </a>
-          <div class="meta">4 min de lectura</div>
-        </article>
-
-      </aside>
-
-    </section>
-
-    <section class="section">
-      <div class="container">
-
-        <div class="section-header">
-          <div class="section-title">Últimos análisis</div>
-          <div class="section-link">Archivo completo →</div>
-        </div>
-
-        <div class="article-grid">
-
-          <article class="article-card">
-            <div class="category">Economía</div>
-
-            <h3>
-              ¿Qué estamos mirando cuando hablamos de crecimiento económico?
-            </h3>
-
-            <p>
-              Una lectura sobre los indicadores que usamos para entender
-              el desempeño de la economía y aquello que pueden estar dejando fuera.
-            </p>
-
-            <div class="meta">
-              Agosto 2026
-            </div>
-          </article>
-
-          <article class="article-card">
-            <div class="category">Política</div>
-
-            <h3>
-              La discusión pública necesita algo más que posiciones
-            </h3>
-
-            <p>
-              Datos y contexto como herramientas para separar el debate político
-              de la reacción inmediata.
-            </p>
-
-            <div class="meta">
-              Agosto 2026
-            </div>
-          </article>
-
-          <article class="article-card">
-            <div class="category">Desarrollo</div>
-
-            <h3>
-              Las políticas públicas también se evalúan por lo que permanece
-            </h3>
-
-            <p>
-              Una mirada sobre implementación, instituciones y la distancia
-              entre formular una política y transformar una realidad.
-            </p>
-
-            <div class="meta">
-              Agosto 2026
-            </div>
-          </article>
-
-        </div>
       </div>
     </section>
+
+    <section class="posts" id="publicaciones">
+      <div class="container" id="postsContainer">
+
+        <!-- PUBLICACIÓN 1 -->
+
+        <article
+          class="post"
+          data-category="economia"
+          data-year="2026"
+          data-month="08"
+          data-search="crecimiento economia colombia consumo"
+        >
+
+          <div class="post-date">
+            18 AGO 2026
+          </div>
+
+          <div class="post-content">
+
+            <div class="post-category">
+              Economía
+            </div>
+
+            <h2>
+              <a href="#">
+                ¿Estamos creciendo o simplemente consumiendo más?
+              </a>
+            </h2>
+
+            <p class="post-summary">
+              Una reflexión sobre qué dicen realmente las cifras de crecimiento
+              económico y qué elementos pueden quedar ocultos detrás de los
+              principales indicadores.
+            </p>
+
+            <div class="post-meta">
+              7 min de lectura
+            </div>
+
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=900&q=80"
+              alt="Imagen de referencia para análisis económico"
+            >
+          </div>
+
+        </article>
+
+
+        <!-- PUBLICACIÓN 2 -->
+
+        <article
+          class="post"
+          data-category="politica"
+          data-year="2026"
+          data-month="08"
+          data-search="politica gobierno debate publico colombia"
+        >
+
+          <div class="post-date">
+            10 AGO 2026
+          </div>
+
+          <div class="post-content">
+
+            <div class="post-category">
+              Política
+            </div>
+
+            <h2>
+              <a href="#">
+                El problema de gobernar pensando en el próximo titular
+              </a>
+            </h2>
+
+            <p class="post-summary">
+              La velocidad de la conversación pública está transformando
+              la manera en que gobiernos, ciudadanos y medios procesan
+              las decisiones políticas.
+            </p>
+
+            <div class="post-meta">
+              5 min de lectura
+            </div>
+
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80"
+              alt="Imagen de referencia para análisis político"
+            >
+          </div>
+
+        </article>
+
+
+        <!-- PUBLICACIÓN 3 -->
+
+        <article
+          class="post"
+          data-category="desarrollo"
+          data-year="2026"
+          data-month="08"
+          data-search="politica publica desarrollo instituciones implementacion"
+        >
+
+          <div class="post-date">
+            02 AGO 2026
+          </div>
+
+          <div class="post-content">
+
+            <div class="post-category">
+              Desarrollo
+            </div>
+
+            <h2>
+              <a href="#">
+                Una política pública no termina cuando se firma el decreto
+              </a>
+            </h2>
+
+            <p class="post-summary">
+              Implementación, capacidades institucionales y continuidad:
+              tres elementos que suelen determinar si una política realmente
+              transforma una realidad.
+            </p>
+
+            <div class="post-meta">
+              8 min de lectura
+            </div>
+
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+              alt="Imagen de referencia para desarrollo e instituciones"
+            >
+          </div>
+
+        </article>
+
+        <div class="no-results" id="noResults">
+          No encontré publicaciones con esos filtros.
+        </div>
+
+      </div>
+    </section>
+
 
     <section class="about" id="sobre-mi">
       <div class="container about-inner">
 
-        <h2>Sobre mí</h2>
+        <h2>
+          Sobre mí
+        </h2>
 
         <p>
           Soy Diego Vesga. Economista interesado en política pública,
-          desarrollo y en las decisiones económicas que moldean la vida
-          cotidiana. Este es un espacio de análisis personal e independiente,
-          construido para desarrollar argumentos con mayor profundidad que
-          la que normalmente permiten las redes sociales.
+          economía y desarrollo. Este espacio reúne análisis personales,
+          columnas y reflexiones sobre los debates que atraviesan a Colombia,
+          con el propósito de ir más allá de la reacción inmediata y desarrollar
+          argumentos con mayor contexto.
         </p>
 
       </div>
-    </section>
-
-    <section class="newsletter">
-
-      <div class="container">
-
-        <h2>Recibe los nuevos análisis</h2>
-
-        <p>
-          Próximamente podrás suscribirte para recibir directamente
-          las nuevas publicaciones.
-        </p>
-
-        <a class="button" href="#">
-          Suscribirme
-        </a>
-
-      </div>
-
     </section>
 
   </main>
 
   <footer>
-
     <div class="container footer-inner">
 
       <div class="footer-brand">
@@ -634,8 +631,89 @@
       </div>
 
     </div>
-
   </footer>
+
+
+  <script>
+
+    const categoryFilter = document.getElementById("categoryFilter");
+    const yearFilter = document.getElementById("yearFilter");
+    const monthFilter = document.getElementById("monthFilter");
+    const searchInput = document.getElementById("searchInput");
+
+    const posts = document.querySelectorAll(".post");
+    const noResults = document.getElementById("noResults");
+
+    function filterPosts() {
+
+      const selectedCategory = categoryFilter.value;
+      const selectedYear = yearFilter.value;
+      const selectedMonth = monthFilter.value;
+      const searchText = searchInput.value.toLowerCase().trim();
+
+      let visiblePosts = 0;
+
+      posts.forEach(post => {
+
+        const category = post.dataset.category;
+        const year = post.dataset.year;
+        const month = post.dataset.month;
+
+        const searchableText =
+          (
+            post.dataset.search +
+            " " +
+            post.innerText
+          ).toLowerCase();
+
+        const matchesCategory =
+          selectedCategory === "all" ||
+          category === selectedCategory;
+
+        const matchesYear =
+          selectedYear === "all" ||
+          year === selectedYear;
+
+        const matchesMonth =
+          selectedMonth === "all" ||
+          month === selectedMonth;
+
+        const matchesSearch =
+          searchText === "" ||
+          searchableText.includes(searchText);
+
+        if (
+          matchesCategory &&
+          matchesYear &&
+          matchesMonth &&
+          matchesSearch
+        ) {
+
+          post.style.display = "";
+          visiblePosts++;
+
+        } else {
+
+          post.style.display = "none";
+
+        }
+
+      });
+
+      if (visiblePosts === 0) {
+        noResults.style.display = "block";
+      } else {
+        noResults.style.display = "none";
+      }
+
+    }
+
+    categoryFilter.addEventListener("change", filterPosts);
+    yearFilter.addEventListener("change", filterPosts);
+    monthFilter.addEventListener("change", filterPosts);
+    searchInput.addEventListener("input", filterPosts);
+
+  </script>
 
 </body>
 </html>
