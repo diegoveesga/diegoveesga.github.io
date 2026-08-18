@@ -1,17 +1,22 @@
+---
+---
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Diego Vesga | Análisis, política y economía</title>
+  <title>{{ site.title }} | {{ site.author }}</title>
 
   <meta
     name="description"
-    content="Archivo personal de análisis, columnas y reflexiones de Diego Vesga sobre política, economía y desarrollo en Colombia."
+    content="{{ site.description }}"
   >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -44,9 +49,10 @@
       margin: 0 auto;
     }
 
-    /* HEADER */
+    /* CABECERA */
 
     header {
+      border-top: 7px solid var(--black);
       border-bottom: 1px solid var(--black);
       padding: 30px 0 22px;
     }
@@ -73,7 +79,7 @@
       color: var(--dark);
     }
 
-    /* NAV */
+    /* NAVEGACIÓN */
 
     nav {
       border-bottom: 1px solid var(--light-gray);
@@ -100,77 +106,70 @@
       text-underline-offset: 5px;
     }
 
-    /* INTRO */
+    /* INTRODUCCIÓN */
 
     .intro {
       padding: 42px 0 30px;
     }
 
     .intro-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      color: var(--gray);
       margin-bottom: 12px;
+      color: var(--gray);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .intro h1 {
+      max-width: 800px;
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(34px, 5vw, 54px);
       font-weight: 500;
       letter-spacing: -1px;
       line-height: 1.05;
-      max-width: 760px;
     }
 
     .intro p {
-      margin-top: 16px;
       max-width: 720px;
-      font-size: 17px;
+      margin-top: 16px;
       color: var(--dark);
+      font-size: 17px;
     }
 
-    /* FILTERS */
+    /* FILTROS */
 
     .filters {
+      margin-bottom: 8px;
+      padding: 18px 0;
       border-top: 1px solid var(--black);
       border-bottom: 1px solid var(--black);
-      padding: 18px 0;
-      margin-bottom: 8px;
     }
 
     .filters-inner {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 2fr;
+      grid-template-columns: 1.2fr 1fr 1fr 2fr;
       gap: 12px;
     }
 
-    .filter-button,
     select,
     input {
       width: 100%;
       height: 42px;
+      padding: 0 13px;
       border: 1px solid var(--light-gray);
       background: var(--white);
-      padding: 0 13px;
-      font-size: 13px;
       color: var(--black);
+      font-size: 13px;
     }
 
-    input:focus,
-    select:focus {
+    select:focus,
+    input:focus {
       outline: 1px solid var(--black);
       border-color: var(--black);
     }
 
-    .filter-button {
-      cursor: pointer;
-      text-align: left;
-      font-weight: 600;
-    }
-
-    /* POSTS */
+    /* PUBLICACIONES */
 
     .posts {
       padding: 10px 0 60px;
@@ -180,35 +179,39 @@
       display: grid;
       grid-template-columns: 120px minmax(0, 1fr) 230px;
       gap: 32px;
+      align-items: start;
       padding: 34px 0;
       border-bottom: 1px solid var(--light-gray);
-      align-items: start;
+    }
+
+    .post.no-image {
+      grid-template-columns: 120px minmax(0, 1fr);
     }
 
     .post-date {
+      color: var(--gray);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      color: var(--gray);
       text-transform: uppercase;
     }
 
     .post-category {
       display: inline-block;
       margin-bottom: 8px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
       color: var(--gray);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .post h2 {
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(25px, 3vw, 35px);
-      line-height: 1.08;
       font-weight: 600;
       letter-spacing: -0.5px;
+      line-height: 1.08;
     }
 
     .post h2 a:hover {
@@ -218,49 +221,49 @@
     }
 
     .post-summary {
-      margin-top: 11px;
-      font-size: 15px;
-      color: var(--dark);
       max-width: 650px;
+      margin-top: 11px;
+      color: var(--dark);
+      font-size: 15px;
     }
 
     .post-meta {
       margin-top: 14px;
-      font-size: 12px;
       color: var(--gray);
+      font-size: 12px;
     }
 
     .post-image {
       aspect-ratio: 16 / 10;
+      overflow: hidden;
       background: var(--very-light-gray);
       border: 1px solid var(--light-gray);
-      overflow: hidden;
     }
 
     .post-image img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
       filter: grayscale(100%);
     }
 
-    /* EMPTY STATE */
+    /* SIN RESULTADOS */
 
     .no-results {
       display: none;
-      padding: 50px 0;
-      text-align: center;
+      padding: 60px 0;
       color: var(--gray);
       font-size: 15px;
+      text-align: center;
     }
 
-    /* ABOUT */
+    /* SOBRE MÍ */
 
     .about {
+      padding: 45px 0;
       background: var(--very-light-gray);
       border-top: 1px solid var(--light-gray);
-      padding: 45px 0;
     }
 
     .about-inner {
@@ -275,17 +278,17 @@
     }
 
     .about p {
-      font-size: 15px;
-      color: var(--dark);
       max-width: 700px;
+      color: var(--dark);
+      font-size: 15px;
     }
 
     /* FOOTER */
 
     footer {
+      padding: 30px 0;
       background: var(--black);
       color: var(--white);
-      padding: 30px 0;
     }
 
     .footer-inner {
@@ -319,7 +322,8 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .post {
+      .post,
+      .post.no-image {
         grid-template-columns: 90px minmax(0, 1fr);
       }
 
@@ -333,6 +337,7 @@
         grid-template-columns: 1fr;
         gap: 15px;
       }
+
     }
 
     @media (max-width: 600px) {
@@ -345,7 +350,8 @@
         grid-template-columns: 1fr;
       }
 
-      .post {
+      .post,
+      .post.no-image {
         display: block;
       }
 
@@ -362,39 +368,58 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
     }
 
   </style>
+
 </head>
 
 <body>
 
   <header>
+
     <div class="container header-inner">
 
       <div class="brand">
-        NOTAS AL MARGEN
+        {{ site.title }}
       </div>
 
       <div class="tagline">
-        Política, economía y desarrollo.<br>
-        Análisis personales sobre Colombia.
+        Por {{ site.author }}<br>
+        Política, economía, desarrollo y otras ideas.
       </div>
 
     </div>
+
   </header>
 
+
   <nav>
+
     <div class="container nav-inner">
-      <a href="#publicaciones">Publicaciones</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#">Contacto</a>
+
+      <a href="#publicaciones">
+        Publicaciones
+      </a>
+
+      <a href="#sobre-mi">
+        Sobre mí
+      </a>
+
+      <a href="mailto:">
+        Contacto
+      </a>
+
     </div>
+
   </nav>
+
 
   <main>
 
     <section class="intro">
+
       <div class="container">
 
         <div class="intro-label">
@@ -406,34 +431,36 @@
         </h1>
 
         <p>
-          Un archivo personal de ideas sobre política, economía, desarrollo
-          y los debates que ayudan a entender mejor a Colombia.
+          Un archivo personal de ideas sobre política, economía,
+          desarrollo y los debates que ayudan a entender mejor
+          el presente.
         </p>
 
       </div>
+
     </section>
 
+
     <section class="filters">
+
       <div class="container filters-inner">
 
         <select id="categoryFilter">
-          <option value="all">Todos los temas</option>
-          <option value="economia">Economía</option>
-          <option value="politica">Política</option>
-          <option value="desarrollo">Desarrollo</option>
-          <option value="opinion">Opinión</option>
+          <option value="all">
+            Todos los temas
+          </option>
         </select>
 
         <select id="yearFilter">
-          <option value="all">Todos los años</option>
-          <option value="2026">2026</option>
+          <option value="all">
+            Todos los años
+          </option>
         </select>
 
         <select id="monthFilter">
-          <option value="all">Todos los meses</option>
-          <option value="08">Agosto</option>
-          <option value="07">Julio</option>
-          <option value="06">Junio</option>
+          <option value="all">
+            Todos los meses
+          </option>
         </select>
 
         <input
@@ -443,163 +470,131 @@
         >
 
       </div>
+
     </section>
 
-    <section class="posts" id="publicaciones">
-      <div class="container" id="postsContainer">
 
-        <!-- PUBLICACIÓN 1 -->
+    <section
+      class="posts"
+      id="publicaciones"
+    >
+
+      <div
+        class="container"
+        id="postsContainer"
+      >
+
+
+        {% for post in site.posts %}
 
         <article
-          class="post"
-          data-category="economia"
-          data-year="2026"
-          data-month="08"
-          data-search="crecimiento economia colombia consumo"
+          class="post{% unless post.image %} no-image{% endunless %}"
+          data-category="{{ post.category | downcase | escape }}"
+          data-category-name="{{ post.category | escape }}"
+          data-year="{{ post.date | date: '%Y' }}"
+          data-month="{{ post.date | date: '%m' }}"
+          data-search="{{ post.title | strip_html | escape }} {{ post.description | strip_html | escape }} {{ post.category | escape }}"
         >
 
           <div class="post-date">
-            18 AGO 2026
+
+            {% assign month = post.date | date: "%m" %}
+
+            {{ post.date | date: "%d" }}
+
+            {% case month %}
+              {% when "01" %}ENE
+              {% when "02" %}FEB
+              {% when "03" %}MAR
+              {% when "04" %}ABR
+              {% when "05" %}MAY
+              {% when "06" %}JUN
+              {% when "07" %}JUL
+              {% when "08" %}AGO
+              {% when "09" %}SEP
+              {% when "10" %}OCT
+              {% when "11" %}NOV
+              {% when "12" %}DIC
+            {% endcase %}
+
+            {{ post.date | date: "%Y" }}
+
           </div>
+
 
           <div class="post-content">
 
             <div class="post-category">
-              Economía
+              {{ post.category }}
             </div>
 
             <h2>
-              <a href="#">
-                ¿Estamos creciendo o simplemente consumiendo más?
+
+              <a href="{{ post.url | relative_url }}">
+                {{ post.title }}
               </a>
+
             </h2>
 
+
+            {% if post.description %}
+
             <p class="post-summary">
-              Una reflexión sobre qué dicen realmente las cifras de crecimiento
-              económico y qué elementos pueden quedar ocultos detrás de los
-              principales indicadores.
+              {{ post.description }}
             </p>
 
+            {% endif %}
+
+
+            {% if post.reading_time %}
+
             <div class="post-meta">
-              7 min de lectura
+              {{ post.reading_time }} min de lectura
             </div>
 
+            {% endif %}
+
           </div>
 
-          <div class="post-image">
+
+          {% if post.image %}
+
+          <a
+            class="post-image"
+            href="{{ post.url | relative_url }}"
+          >
+
             <img
-              src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=900&q=80"
-              alt="Imagen de referencia para análisis económico"
+              src="{{ post.image | relative_url }}"
+              alt="{{ post.image_alt | default: post.title }}"
             >
-          </div>
+
+          </a>
+
+          {% endif %}
 
         </article>
 
+        {% endfor %}
 
-        <!-- PUBLICACIÓN 2 -->
 
-        <article
-          class="post"
-          data-category="politica"
-          data-year="2026"
-          data-month="08"
-          data-search="politica gobierno debate publico colombia"
+        <div
+          class="no-results"
+          id="noResults"
         >
-
-          <div class="post-date">
-            10 AGO 2026
-          </div>
-
-          <div class="post-content">
-
-            <div class="post-category">
-              Política
-            </div>
-
-            <h2>
-              <a href="#">
-                El problema de gobernar pensando en el próximo titular
-              </a>
-            </h2>
-
-            <p class="post-summary">
-              La velocidad de la conversación pública está transformando
-              la manera en que gobiernos, ciudadanos y medios procesan
-              las decisiones políticas.
-            </p>
-
-            <div class="post-meta">
-              5 min de lectura
-            </div>
-
-          </div>
-
-          <div class="post-image">
-            <img
-              src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80"
-              alt="Imagen de referencia para análisis político"
-            >
-          </div>
-
-        </article>
-
-
-        <!-- PUBLICACIÓN 3 -->
-
-        <article
-          class="post"
-          data-category="desarrollo"
-          data-year="2026"
-          data-month="08"
-          data-search="politica publica desarrollo instituciones implementacion"
-        >
-
-          <div class="post-date">
-            02 AGO 2026
-          </div>
-
-          <div class="post-content">
-
-            <div class="post-category">
-              Desarrollo
-            </div>
-
-            <h2>
-              <a href="#">
-                Una política pública no termina cuando se firma el decreto
-              </a>
-            </h2>
-
-            <p class="post-summary">
-              Implementación, capacidades institucionales y continuidad:
-              tres elementos que suelen determinar si una política realmente
-              transforma una realidad.
-            </p>
-
-            <div class="post-meta">
-              8 min de lectura
-            </div>
-
-          </div>
-
-          <div class="post-image">
-            <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
-              alt="Imagen de referencia para desarrollo e instituciones"
-            >
-          </div>
-
-        </article>
-
-        <div class="no-results" id="noResults">
           No encontré publicaciones con esos filtros.
         </div>
 
       </div>
+
     </section>
 
 
-    <section class="about" id="sobre-mi">
+    <section
+      class="about"
+      id="sobre-mi"
+    >
+
       <div class="container about-inner">
 
         <h2>
@@ -610,77 +605,213 @@
           Soy Diego Vesga. Economista interesado en política pública,
           economía y desarrollo. Este espacio reúne análisis personales,
           columnas y reflexiones sobre los debates que atraviesan a Colombia,
-          con el propósito de ir más allá de la reacción inmediata y desarrollar
-          argumentos con mayor contexto.
+          con la intención de detenerme en aquellas ideas que merecen algo
+          más de tiempo que un titular o una publicación en redes sociales.
         </p>
 
       </div>
+
     </section>
 
   </main>
 
+
   <footer>
+
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        Diego Vesga
+        {{ site.title }}
       </div>
 
       <div>
-        © 2026 Diego Vesga · Análisis y opinión
+        © 2026 {{ site.author }}
       </div>
 
     </div>
+
   </footer>
 
 
   <script>
 
-    const categoryFilter = document.getElementById("categoryFilter");
-    const yearFilter = document.getElementById("yearFilter");
-    const monthFilter = document.getElementById("monthFilter");
-    const searchInput = document.getElementById("searchInput");
+    const categoryFilter =
+      document.getElementById("categoryFilter");
 
-    const posts = document.querySelectorAll(".post");
-    const noResults = document.getElementById("noResults");
+    const yearFilter =
+      document.getElementById("yearFilter");
+
+    const monthFilter =
+      document.getElementById("monthFilter");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const posts =
+      Array.from(document.querySelectorAll(".post"));
+
+    const noResults =
+      document.getElementById("noResults");
+
+
+    /* --------------------------
+       CREAR FILTROS AUTOMÁTICOS
+    --------------------------- */
+
+
+    const categories = new Map();
+
+    posts.forEach(post => {
+
+      const value = post.dataset.category;
+      const name = post.dataset.categoryName;
+
+      if (value && name) {
+        categories.set(value, name);
+      }
+
+    });
+
+
+    [...categories.entries()]
+      .sort((a, b) =>
+        a[1].localeCompare(b[1], "es")
+      )
+      .forEach(([value, name]) => {
+
+        const option =
+          document.createElement("option");
+
+        option.value = value;
+        option.textContent = name;
+
+        categoryFilter.appendChild(option);
+
+      });
+
+
+    const years =
+      [...new Set(
+        posts.map(post => post.dataset.year)
+      )]
+      .filter(Boolean)
+      .sort((a, b) => b - a);
+
+
+    years.forEach(year => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = year;
+      option.textContent = year;
+
+      yearFilter.appendChild(option);
+
+    });
+
+
+    const monthNames = {
+      "01": "Enero",
+      "02": "Febrero",
+      "03": "Marzo",
+      "04": "Abril",
+      "05": "Mayo",
+      "06": "Junio",
+      "07": "Julio",
+      "08": "Agosto",
+      "09": "Septiembre",
+      "10": "Octubre",
+      "11": "Noviembre",
+      "12": "Diciembre"
+    };
+
+
+    const months =
+      [...new Set(
+        posts.map(post => post.dataset.month)
+      )]
+      .filter(Boolean)
+      .sort();
+
+
+    months.forEach(month => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = month;
+      option.textContent = monthNames[month];
+
+      monthFilter.appendChild(option);
+
+    });
+
+
+    /* --------------------------
+              FILTRADO
+    --------------------------- */
+
 
     function filterPosts() {
 
-      const selectedCategory = categoryFilter.value;
-      const selectedYear = yearFilter.value;
-      const selectedMonth = monthFilter.value;
-      const searchText = searchInput.value.toLowerCase().trim();
+      const selectedCategory =
+        categoryFilter.value;
+
+      const selectedYear =
+        yearFilter.value;
+
+      const selectedMonth =
+        monthFilter.value;
+
+      const searchText =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
 
       let visiblePosts = 0;
 
+
       posts.forEach(post => {
 
-        const category = post.dataset.category;
-        const year = post.dataset.year;
-        const month = post.dataset.month;
+        const category =
+          post.dataset.category;
+
+        const year =
+          post.dataset.year;
+
+        const month =
+          post.dataset.month;
 
         const searchableText =
           (
             post.dataset.search +
             " " +
             post.innerText
-          ).toLowerCase();
+          )
+          .toLowerCase();
+
 
         const matchesCategory =
           selectedCategory === "all" ||
           category === selectedCategory;
 
+
         const matchesYear =
           selectedYear === "all" ||
           year === selectedYear;
+
 
         const matchesMonth =
           selectedMonth === "all" ||
           month === selectedMonth;
 
+
         const matchesSearch =
           searchText === "" ||
           searchableText.includes(searchText);
+
 
         if (
           matchesCategory &&
@@ -700,18 +831,34 @@
 
       });
 
-      if (visiblePosts === 0) {
-        noResults.style.display = "block";
-      } else {
-        noResults.style.display = "none";
-      }
+
+      noResults.style.display =
+        visiblePosts === 0
+        ? "block"
+        : "none";
 
     }
 
-    categoryFilter.addEventListener("change", filterPosts);
-    yearFilter.addEventListener("change", filterPosts);
-    monthFilter.addEventListener("change", filterPosts);
-    searchInput.addEventListener("input", filterPosts);
+
+    categoryFilter.addEventListener(
+      "change",
+      filterPosts
+    );
+
+    yearFilter.addEventListener(
+      "change",
+      filterPosts
+    );
+
+    monthFilter.addEventListener(
+      "change",
+      filterPosts
+    );
+
+    searchInput.addEventListener(
+      "input",
+      filterPosts
+    );
 
   </script>
 
