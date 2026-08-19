@@ -3,6 +3,7 @@ layout: post
 title: "Una prueba para comprobar que esto funciona"
 date: 2022-08-18 12:00:00 -0500
 category: "Filosofía"
+author: "Augusto Profas"
 description: "Esta publicación permitirá comprobar que Notas al Margen incorpora automáticamente cada nuevo texto a su archivo."
 reading_time: 2
 ---
